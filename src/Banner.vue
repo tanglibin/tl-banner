@@ -123,8 +123,10 @@ export default {
 
         if(this.autoPlay){
             const dom = this.$refs.box;
-            dom.addEventListener('mouseover', this.mouseover);
-            dom.addEventListener('mouseout', this.mouseout);
+            if(dom){
+                dom.addEventListener('mouseover', this.mouseover);
+                dom.addEventListener('mouseout', this.mouseout);
+            }
         }
     },
     methods: {
@@ -200,7 +202,7 @@ export default {
             let {autoPlay, list} = this;
             this.autoPlayInterval = setInterval( ()=> {
                 let index = this.showIndex + 1;
-                if( index == list.length){
+                if( index >= list.length){
                     index = 0;
                 }
                 this.showIndex = index;

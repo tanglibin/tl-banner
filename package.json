@@ -1,6 +1,6 @@
 {
     "name": "tl-banner",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Vue Banner组件",
     "main": "lib/tl.banner.js",
     "scripts": {
