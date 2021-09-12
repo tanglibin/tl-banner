@@ -1,0 +1,119 @@
+.tl__banner{
+    &{
+        background: #232323;
+        position: relative;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .tl__banner__slide{
+        overflow: hidden;
+        list-style: none;
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .tl__slideitem{
+        &{
+            cursor: pointer;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        &:before{
+            content: '';
+            border: 2px solid #efefef;
+            border-top-color: #0c0c0c;
+            border-radius: 50%;
+            animation: 1s tl_banner-loading linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 26px;
+            height: 26px;
+            margin: -13px 0 0 -13px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        &.tl__hidden{visibility: hidden;}
+    }
+    .tl__from_right{animation: tl_banner-from-right 0.5s ease both;}
+    .tl__to_left{animation: tl_banner-to-left 0.5s ease both;}
+    .tl__from_left{animation: tl_banner-from-left 0.5s ease both;}
+    .tl__to_right{animation: tl_banner-to-right 0.5s ease both;}
+    
+    .tl__slide__img{position: relative;z-index: 2;width: 100%;height: 100%;}
+    
+    .tl__prevbtn, .tl__nextbtn{
+        position: absolute;
+        top: 50%;
+        margin-top: -22px;
+        width: 24px;
+        height: 44px;
+        cursor: pointer;
+        z-index: 5;
+    }
+    .tl__prevbtn{left: 0;background: url('./left.png');}
+    .tl__nextbtn{right: 0;background: url('./right.png');}
+
+    .tl__pageination {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        font-size: 0;
+        z-index: 5;
+    }
+    .tl__page_item {
+        display: inline-block;
+        position: relative;
+        border-color: #000;
+        opacity: 0.3;
+        height: 5px;
+    }
+    .tl__page_item:before{
+        content:'';
+        position: absolute;
+        left: 0;
+        right: 2px;
+        top: 0;
+        height: 0;
+        border-top: 5px solid;
+        border-top-color: inherit;
+    }
+    .tl__slide_active {
+        opacity: 0.8;
+        border-color: #e33233;
+    }
+}
+
+
+@keyframes tl_banner-from-right{
+    0% {transform: translate3d(100%, 0, 0);}
+    100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes tl_banner-to-left{
+    0% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(-100%, 0, 0);}
+}
+
+@keyframes tl_banner-from-left{
+    0% {transform: translate3d(-100%, 0, 0);}
+    100% {transform: translate3d(0, 0, 0);}
+}
+
+@keyframes tl_banner-to-right{
+    0% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(100%, 0, 0);}
+}
+
+@keyframes tl_banner-loading {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
