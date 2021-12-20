@@ -163,9 +163,9 @@ export default {
                 this.bannerList = list;
             }else{
                 list.forEach((item, i) => {
-                    let obj = {lazySrc: item.src};
-                    if(!i){
-                        obj.src = item.src;
+                    let obj = Object.assign({lazySrc: item.src}, item);
+                    if(i){
+                        delete obj.src;
                     }
                     this.bannerList.push(obj);
                 })
